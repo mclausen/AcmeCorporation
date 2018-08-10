@@ -1,8 +1,15 @@
 ﻿using System;
+using NUnit.Framework;
 
 namespace AcmeCorporation.Raffle.Tests
 {
-    public class Class1
+    [TestFixture]
+    public class CanaryInAColeMineTest
     {
+        [Test]
+        public void CanPeep()
+        {
+            Assert.True(true);
+        }
     }
 }
