@@ -10,6 +10,16 @@ namespace AcmeCorporation.Raffle.Infrastructure.Storage
         public DbSet<SerialNumber> SerialNumbers { get; set; }
         public DbSet<RaffleSubmission> RaffleSubmissions { get; set; }
 
+        public RaffleDbContext()
+        {
+            
+        }
+        
+        public RaffleDbContext(DbContextOptions<RaffleDbContext> options) : base(options) {}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(
+            @"");
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // SerialNumber
@@ -18,7 +28,10 @@ namespace AcmeCorporation.Raffle.Infrastructure.Storage
 
             modelBuilder.Entity<SerialNumber>()
                 .Property(model => model.DateCreatedUtc)
-                .HasDefaultValue(DateTime.UtcNow);
+                .IsRequired();
+            modelBuilder.Entity<SerialNumber>()
+                .Property(model => model.UsageCount)
+                .HasDefaultValue(0);
             
             // Raffle Submission
             modelBuilder.Entity<RaffleSubmission>()
@@ -43,7 +56,8 @@ namespace AcmeCorporation.Raffle.Infrastructure.Storage
 
             modelBuilder.Entity<RaffleSubmission>()
                 .Property(model => model.EmailAddress)
-                .HasConversion(converter);
+                .HasConversion(converter)
+                .IsRequired();
         }
     }
 }
