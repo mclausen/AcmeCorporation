@@ -4,23 +4,25 @@ namespace AcmeCorporation.Raffle.Domain
 {
     public class SerialNumber
     {
-        // Could be added to column for flexibility
-        private const int NumberOfUsages = 2;
-        
         public string Serial { get; protected set; }
         public DateTime DateCreatedUtc { get; protected set; }
         public int UsageCount { get; protected set; }
-        public bool CanBeUsed => UsageCount <= NumberOfUsages;
-        
+
+
+        public bool CanBeUsed()
+        {
+            return UsageCount <= 2;
+        }
 
         public void Use()
         {
-            if (CanBeUsed)
+            if (CanBeUsed())
             {
-                throw new DomainException($"Serial number '{Serial}' exeeded its usage count");
+                UsageCount++; 
+                return;
             }
 
-            UsageCount++;
+            throw new DomainException($"Serial number '{Serial}' exeeded its usage count");
         }
 
         

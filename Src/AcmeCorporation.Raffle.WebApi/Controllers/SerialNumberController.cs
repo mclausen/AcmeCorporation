@@ -38,7 +38,7 @@ namespace AcmeCorporation.Raffle.WebApi.Controllers
                 return false;
             }
 
-            if (model.CanBeUsed == false)
+            if (model.CanBeUsed() == false)
             {
                 errorMessage = $"Serial number provided cannot be used, because it has already been used {model.UsageCount} times.";
                 return false;
