@@ -12,6 +12,14 @@ namespace AcmeCorporation.Raffle.Domain
         public DateTime SubmissionTimeUtc { get; protected set; }
 
 
+        /// <summary>
+        /// Proxy constructor to make EF happy with the serialization of entity
+        /// </summary>
+        protected RaffleSubmission()
+        {
+            
+        }
+        
         public RaffleSubmission(string firstName, string lastName, EmailAddress emailAddress, SerialNumber serialNumber)
         {
             if(string.IsNullOrEmpty(firstName)) throw new ArgumentNullException(nameof(firstName));

@@ -23,7 +23,7 @@ namespace AcmeCorporation.Raffle.Tests.Integration.Services
         {
             Assert.ThrowsAsync<ArgumentNullException>(()
                 => sut.Submit(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(),
-                    new EmailAddress("aValid@email.com"), null));
+                    new EmailAddress("aid@email.com"), null));
         }
 
         [Test]
