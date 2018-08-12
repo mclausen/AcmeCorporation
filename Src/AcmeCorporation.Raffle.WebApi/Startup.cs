@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AcmeCorporation.Raffle.Domain.Interfaces;
+using AcmeCorporation.Raffle.Infrastructure.Services;
 using AcmeCorporation.Raffle.Infrastructure.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +42,10 @@ namespace AcmeCorporation.Raffle.WebApi
                         sqloptions => sqloptions
                             .MigrationsAssembly("AcmeCorporation.Raffle.Infrastructure"));
                 });
+
+
+            services.AddTransient<ISerialNumberRepository, SerialNumberRespository>();
+            services.AddTransient<IRaffleSubmissionService, RaffleSubmissionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
