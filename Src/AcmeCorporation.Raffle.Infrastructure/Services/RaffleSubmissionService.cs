@@ -15,7 +15,7 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
             _dbContext = dbContext;
         }
         
-        public async Task Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber)
+        public async Task<RaffleSubmission>  Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber)
         {
             if (serialNumber == null) throw new ArgumentNullException(nameof(serialNumber));
             
@@ -27,6 +27,8 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
                 emailAddress: emailAddress,
                 serialNumber: serialNumber);
             await _dbContext.RaffleSubmissions.AddAsync(submission);
+
+            return submission;
         }
     }
 }
