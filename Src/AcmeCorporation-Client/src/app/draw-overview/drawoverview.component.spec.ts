@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { DrawOverviewComponent } from './drawoverview.component';
 
-describe('DrawoOverviewComponent', () => {
+describe('DrawOverviewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
