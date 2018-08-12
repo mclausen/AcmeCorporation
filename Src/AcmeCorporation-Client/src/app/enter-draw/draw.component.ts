@@ -1,10 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { SerialValidationService } from './services/serialvalidation.service';
-import { SerialValidationResponse } from './model/SerialValidationResponse';
+import { SerialValidationResponse } from './model/serialValidationResponse';
 import { DrawService } from './services/draw.service';
 import { SubmitDrawRequest } from './model/submitDrawRequest';
-import { NgForm } from '../../../node_modules/@angular/forms';
-import { detectChanges } from '../../../node_modules/@angular/core/src/render3';
 
 
 

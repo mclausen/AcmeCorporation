@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { SerialValidationResponse } from '../model/SerialValidationResponse';
+import { HttpClient } from '@angular/common/http';
+import { SerialValidationResponse } from '../model/serialValidationResponse';
 
 @Injectable()
 export class SerialValidationService {
