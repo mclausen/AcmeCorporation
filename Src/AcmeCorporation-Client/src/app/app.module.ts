@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DrawComponent } from './enter-draw/draw.component';
+import { DrawOverviewComponent } from './draw-overview/drawoverview.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SerialValidationService } from './enter-draw/services/serialvalidation.service';
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    DrawComponent
+    DrawComponent,
+    DrawOverviewComponent
   ],
   imports: [
     BrowserModule,
