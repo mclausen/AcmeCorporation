@@ -30,7 +30,7 @@ namespace AcmeCorporation.Raffle.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddMvc()
+                .AddMvc(options => { options.Filters.Add<ModelStateValidationFilter>(); })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             
