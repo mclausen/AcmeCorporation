@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;
 using AcmeCorporation.Raffle.Domain;
 using AcmeCorporation.Raffle.Domain.Interfaces;
 using AcmeCorporation.Raffle.Infrastructure.Services;
@@ -32,7 +33,7 @@ namespace AcmeCorporation.Raffle.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SubmitDraw(SubmitDrawRequest request)
+        public async Task<IActionResult> SubmitDraw([FromBody]SubmitDrawRequest request)
         {
             var serialNumber = await _serialNumberRepository.GetSerialNumber(request.SerialNumber);
             if (serialNumber == null)
