@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {DrawService} from '../services/draw.service';
+import { PagedDrawSubmissionsResponse } from '../services/PagedDrawSubmissionsResponse';
+import { DrawSubmissionListingsDto } from '../services/drawSubmissionlistingsDto';
 
 @Component({
   selector: 'app-drawoverview',
@@ -6,34 +9,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./drawoverview.component.css']
 })
 export class DrawOverviewComponent implements OnInit {
-  items: DrawListModel[];
-  pagination: PaginationInfo;
 
-  ngOnInit(): void {
+  listingResponse: PagedDrawSubmissionsResponse;
+
+  constructor(private drawService: DrawService) {
   }
 
+  ngOnInit(): void {
+    this.fetchPage(0);
+  }
+
+
+
   selectPage(pageNumber: number) {
-    console.log('selected page: ' + pageNumber );
+    if(pageNumber === this.listingResponse.currentPage) {
+      return;
+    }
+
+    this.fetchPage(pageNumber);
   }
 
   next() {
-    console.log('clicked next');
+    const pageToFetch = this.listingResponse.currentPage + 1;
+    this.fetchPage(pageToFetch);
   }
 
   previous() {
-    console.log('clicked previous');
+    const pageToFetch = this.listingResponse.currentPage - 1;
+    this.fetchPage(pageToFetch);
   }
-}
 
-export class DrawListModel {
-  firstName: string;
-  lastName: string;
-  email: string;
-  serial: string;
-  dateSubmitted: Date;
-}
+  fetchPage(pageNumber: number) {
+    this.drawService.getDrawSubmissions(pageNumber)
+      .subscribe(response => this.listingResponse = response);
+  }
 
-export class PaginationInfo {
-  currentPage: number;
-  numberOfPages: number;
+  totalNumberOfPagesToArray(numberOfPages: number): any[] {
+    return Array(numberOfPages);
+  }
 }

@@ -3,18 +3,43 @@
 
 <div class="container">
 
-  <div>
-    <table>
+  <div *ngIf="listingResponse !== undefined">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Serial</th>
+          <th scope="col">Date entered the draw</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let submission of listingResponse.submissions">
+          <td>{{submission.id}}</td>
+          <td>{{submission.firstName}}</td>
+          <td>{{submission.lastName}}</td>
+          <td>{{submission.emailAddress}}</td>
+          <td>{{submission.serialNumber}}</td>
+          <td>{{submission.submissionTimeUtc}}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 
-    <div class="pagination-container">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" (click)="previous()" >Previous</a></li>
-            <li class="page-item"><a class="page-link" >1</a></li>
-            <li class="page-item"><a class="page-link" >2</a></li>
-            <li class="page-item"><a class="page-link" >3</a></li>
-            <li class="page-item"><a class="page-link" (click)="next()">Next</a></li>
-        </ul>
-    </div>
+  <div class="pagination-container" *ngIf="listingResponse !== undefined">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="previous()">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let item of totalNumberOfPagesToArray(listingResponse.numberOfPages); let i = index;">
+        <a class="page-link" (click)="fetchPage(i)">{{ i }}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="next()">Next</a>
+      </li>
+    </ul>
+  </div>
 </div>
