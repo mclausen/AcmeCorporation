@@ -22,7 +22,7 @@ export class DrawOverviewComponent implements OnInit {
 
 
   selectPage(pageNumber: number) {
-    if(pageNumber === this.listingResponse.currentPage) {
+    if (pageNumber === this.listingResponse.currentPage) {
       return;
     }
 
@@ -31,11 +31,19 @@ export class DrawOverviewComponent implements OnInit {
 
   next() {
     const pageToFetch = this.listingResponse.currentPage + 1;
+    if (pageToFetch > this.listingResponse.numberOfPages) {
+      return;
+    }
+
     this.fetchPage(pageToFetch);
   }
 
   previous() {
     const pageToFetch = this.listingResponse.currentPage - 1;
+    if (pageToFetch < 1) {
+      return;
+    }
+
     this.fetchPage(pageToFetch);
   }
 
