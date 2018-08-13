@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SubmitDrawRequest } from './submitDrawRequest';
+import { PagedDrawSubmissionsResponse } from './PagedDrawSubmissionsResponse';
 
 @Injectable()
 export class DrawService {
@@ -25,6 +26,17 @@ export class DrawService {
 
     const url = 'https://localhost:5001/submissions';
     return this.http.post(url, JSON.stringify(obj) , httpOptions);
+  }
+
+  getDrawSubmissions(page: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+
+    const url = 'http://localhost:5000/submissions/' + page;
+    return this.http.get<PagedDrawSubmissionsResponse>(url);
   }
 }
 

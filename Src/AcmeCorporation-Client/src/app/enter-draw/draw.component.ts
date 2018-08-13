@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { SerialValidationService } from './services/serialvalidation.service';
-import { SerialValidationResponse } from './model/serialValidationResponse';
-import { DrawService } from './services/draw.service';
-import { SubmitDrawRequest } from './model/submitDrawRequest';
+import { SerialValidationResponse } from './model/SerialValidationResponse';
+import { DrawService } from '../services/draw.service';
+import { SubmitDrawRequest } from '../services/submitDrawRequest';
 
 import {Router} from '@angular/router';
 
