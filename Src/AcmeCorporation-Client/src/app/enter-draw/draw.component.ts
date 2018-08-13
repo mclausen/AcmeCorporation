@@ -54,9 +54,9 @@ export class DrawComponent {
     }
 
     onSubmit() {
-      //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.drawRequest));
-      this.drawService.SubmitDraw(this.drawRequest)
+      this.drawService.submitDraw(this.drawRequest)
        .subscribe(response => {
+         this.router.navigateByUrl('/receipt');
           console.log(response);
         });
     }

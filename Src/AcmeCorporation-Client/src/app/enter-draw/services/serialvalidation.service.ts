@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SerialValidationResponse } from '../model/SerialValidationResponse';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class SerialValidationService {
@@ -8,8 +9,7 @@ export class SerialValidationService {
 
 
   validateSerialNumber(serial: string) {
-
-    const url = 'http://localhost:5000/serials/' + serial + '/validate';
+    const url = environment.endpointUrl + '/serials/' + serial + '/validate';
     return this.http.get<SerialValidationResponse>(url);
   }
 }
