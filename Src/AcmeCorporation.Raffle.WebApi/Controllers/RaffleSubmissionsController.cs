@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AcmeCorporation.Raffle.Domain;
 using AcmeCorporation.Raffle.Domain.Interfaces;
@@ -20,18 +21,29 @@ namespace AcmeCorporation.Raffle.WebApi.Controllers
             _serialNumberRepository = serialNumberRepository;
         }
         
-        [HttpGet, Route("{id}")]
-        public async Task<IActionResult> Get([FromQuery]int skip, [FromQuery]int take)
+        [HttpGet, Route("{page}")]
+        public async Task<IActionResult> Get(int page)
         {
-            return new OkResult();
+            var pagedResult = await _submissionService.GetSubmissions(page);
+            var result = new PagedDrawSubmissionsDto()
+            {
+                CurrentPage = pagedResult.CurrentPage,
+                NumberOfPages = pagedResult.NumberOfPages,
+                Submissions = pagedResult.Submissions.Select(x => new DrawSubmissionListingDto()
+                {
+                    Id = x.Id,
+                    EmailAddress = x.EmailAddress.Value,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    SerialNumber = x.SerialNumber.Serial,
+                    SubmissionTimeUtc = x.SubmissionTimeUtc
+                }).ToList()
+            };
+
+            return new OkObjectResult(result);
         }
         
-        [HttpGet, Route("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            return new OkResult();
-        }
-
+        
         [HttpPost]
         public async Task<IActionResult> SubmitDraw([FromBody]SubmitDrawRequest request)
         {
@@ -42,7 +54,7 @@ namespace AcmeCorporation.Raffle.WebApi.Controllers
             var submission = await _submissionService.Submit(request.FirstName, request.LastName, new EmailAddress(request.EmailAddress),
                 serialNumber);
  
-            return new CreatedAtRouteResult(nameof(GetById), new { id = submission.Id} ,new DrawSubmissionListingDto()
+            return new OkObjectResult(new DrawSubmissionListingDto()
             {
                 FirstName = submission.FirstName,
                 LastName = submission.LastName,
