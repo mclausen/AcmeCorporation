@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DrawReceiptComponent } from './draw-receipt/draw-receipt.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { DrawReceiptComponent } from './draw-receipt/draw-receipt.component';
     DrawOverviewComponent,
     LandingPageComponent,
     DrawReceiptComponent,
+    NotFoundComponent,
 
   ],
   imports: [
