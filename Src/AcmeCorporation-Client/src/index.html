@@ -10,6 +10,30 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-  <app-root></app-root>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="assets/acme-logo.png" width="60" height="60" class="d-inline-block align-top" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Enter draw</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Draw report</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+      <app-root></app-root>
+  </div>
 </body>
 </html>
