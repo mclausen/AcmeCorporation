@@ -13,12 +13,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { DrawReceiptComponent } from './draw-receipt/draw-receipt.component';
 @NgModule({
   declarations: [
     AppComponent,
     DrawComponent,
     DrawOverviewComponent,
     LandingPageComponent,
+    DrawReceiptComponent,
 
   ],
   imports: [
