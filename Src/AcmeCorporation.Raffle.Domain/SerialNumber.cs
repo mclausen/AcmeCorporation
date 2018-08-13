@@ -11,7 +11,7 @@ namespace AcmeCorporation.Raffle.Domain
 
         public bool CanBeUsed()
         {
-            return UsageCount <= 2;
+            return UsageCount < 2;
         }
 
         public void Use()
