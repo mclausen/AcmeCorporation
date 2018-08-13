@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SerialValidationResponse } from '../model/serialValidationResponse';
+import { SerialValidationResponse } from '../model/SerialValidationResponse';
 
 @Injectable()
 export class SerialValidationService {

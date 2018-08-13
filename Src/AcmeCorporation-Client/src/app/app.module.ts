@@ -7,7 +7,7 @@ import { DrawOverviewComponent } from './draw-overview/drawoverview.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SerialValidationService } from './enter-draw/services/serialvalidation.service';
-import { DrawService } from './enter-draw/services/draw.service';
+import { DrawService } from './services/draw.service';
 
 import { FormsModule } from '@angular/forms';
 

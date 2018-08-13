@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { SubmitDrawRequest } from '../model/submitDrawRequest';
+import { SubmitDrawRequest } from './submitDrawRequest';
 
 @Injectable()
 export class DrawService {
