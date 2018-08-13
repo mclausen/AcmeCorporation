@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AcmeCorporation.Raffle.Domain.Interfaces;
 using AcmeCorporation.Raffle.Infrastructure.Services;
 using AcmeCorporation.Raffle.Infrastructure.Storage;
+using AcmeCorporation.Raffle.WebApi.Filters;
+using AcmeCorporation.Raffle.WebApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -51,6 +53,16 @@ namespace AcmeCorporation.Raffle.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // Should be configured for production usages
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .Build()
+            );
+
+            app.UseMiddleware<EFUnitOfWorkMiddleware>();
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
