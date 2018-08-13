@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DrawService} from '../services/draw.service';
 import { PagedDrawSubmissionsResponse } from '../services/PagedDrawSubmissionsResponse';
-import { DrawSubmissionListingsDto } from '../services/drawSubmissionlistingsDto';
+import { DrawSubmissionListingsDto } from '../services/DrawSubmissionlistingsDto';
 
 @Component({
   selector: 'app-drawoverview',

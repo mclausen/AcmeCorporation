@@ -9,7 +9,7 @@ export class SerialValidationService {
 
   validateSerialNumber(serial: string) {
 
-    const url = 'https://localhost:5001/serials/' + serial + '/validate';
+    const url = 'http://localhost:5000/serials/' + serial + '/validate';
     return this.http.get<SerialValidationResponse>(url);
   }
 }
