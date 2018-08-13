@@ -11,18 +11,23 @@ import { DrawService } from './enter-draw/services/draw.service';
 
 import { FormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     DrawComponent,
-    DrawOverviewComponent
+    DrawOverviewComponent,
+    LandingPageComponent,
+
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     FormsModule
   ],
   providers: [SerialValidationService, DrawService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
