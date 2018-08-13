@@ -1,5 +1,5 @@
-.termsOfUseButtons{
-  display: flex;
+.termsOfUseButtons {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
