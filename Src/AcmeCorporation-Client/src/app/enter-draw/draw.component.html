@@ -24,7 +24,7 @@
       <div class="form-group">
         <label for="firstName" class="text-white">Firstname:</label>
         <input name="firstName" [(ngModel)]="drawRequest.firstName" placeholder="Enter firstname" type="text" required class="form-control"
-          #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }">
+          #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid || (firstName.dirty || firstName.touched) }">
         <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
           <div *ngIf="firstName.errors.required">First Name is required</div>
         </div>
@@ -33,7 +33,7 @@
       <div class="form-group">
         <label for="lastName" class="text-white">Lastname:</label>
         <input name="lastName" [(ngModel)]="drawRequest.lastName" placeholder="Enter lastname" type="text" required class="form-control"
-          #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }">
+          #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid || (lastName.dirty || lastName.touched) }">
         <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
           <div *ngIf="lastName.errors.required">Last Name is required</div>
         </div>
@@ -42,7 +42,7 @@
       <div class="form-group">
         <label for="emailAdress" class="text-white">Email adress:</label>
         <input name="emailAdress" [(ngModel)]="drawRequest.emailAdress" placeholder="Enter email adresss" type="email" required class="form-control"
-          #emailAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emailAdress.invalid }">
+          #emailAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emailAdress.invalid || (emailAdress.dirty || emailAdress.touched) }">
         <div *ngIf="f.submitted && emailAdress.invalid" class="invalid-feedback">
           <div *ngIf="emailAdress.errors.required">Email is required</div>
           <div *ngIf="emailAdress.errors.email">Email must be a valid email address</div>
@@ -51,7 +51,7 @@
       <div class="form-group">
         <label for="serial" class="text-white">Serial:</label>
         <input name="serial" (keyup)="serialEntered($event)" [(ngModel)]="drawRequest.serialNumber" type="text" placeholder="Enter serial"
-          required class="form-control" #serial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && serial.invalid}">
+          required class="form-control" #serial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && serial.invalid || (serial.dirty || serial.touched)}">
         <div *ngIf="serialValidationResult.isValid == false" class="invalid-feedback">
           <div>{{ serialValidationResult.errorMessage }}</div>
         </div>
