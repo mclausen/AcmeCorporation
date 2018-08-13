@@ -1,55 +1,67 @@
-<p>Hello from draw component</p>
-
 <div class="container">
 
-  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" id="drawForm" novalidate>
+  <h1 class="display-3 text-white">Enter the draw</h1>
+  <p class="text-white">If you already purchased on of our products you are in luck! You are now eligble to enter the draw for exclusive acme products
+    to help catch that god damn roardrunner!</p>
 
-    <div class="form-group">
-      <label for="firstName">Firstname:</label>
-      <input name="firstName" [(ngModel)]="drawRequest.firstName" placeholder="Enter firstname" type="text" required class="form-control"
-      #firstName="ngModel"
-      [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }">
-      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+  <div class="TermsOfUse" *ngIf="hasAcceptedTermsOfUse == false">
+    <p class="text-white">
+        Playing with dynamite or mounting a rocket can put you in serious danger!
+
+        You need to be at least 18 to enter the draw.
+    </p>
+
+
+    <div class="termsOfUseButtons">
+        <button type="button" class="btn btn-warning" (click)="declinedTerms()">I am not</button>
+        <button type="button" class="btn btn-primary" (click)="acceptedTerms()">I am over 18</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="hasAcceptedTermsOfUse">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" id="drawForm" novalidate>
+      <div class="form-group">
+        <label for="firstName" class="text-white">Firstname:</label>
+        <input name="firstName" [(ngModel)]="drawRequest.firstName" placeholder="Enter firstname" type="text" required class="form-control"
+          #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }">
+        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
           <div *ngIf="firstName.errors.required">First Name is required</div>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="lastName">Lastname:</label>
-      <input name="lastName" [(ngModel)]="drawRequest.lastName" placeholder="Enter lastname" type="text" required class="form-control"
-      #lastName="ngModel"
-      [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }">
-      <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+      <div class="form-group">
+        <label for="lastName" class="text-white">Lastname:</label>
+        <input name="lastName" [(ngModel)]="drawRequest.lastName" placeholder="Enter lastname" type="text" required class="form-control"
+          #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }">
+        <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
           <div *ngIf="lastName.errors.required">Last Name is required</div>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="emailAdress">Email adress:</label>
-      <input name="emailAdress" [(ngModel)]="drawRequest.emailAdress" placeholder="Enter email adresss" type="email" required class="form-control"
-      #emailAdress="ngModel"
-      [ngClass]="{ 'is-invalid': f.submitted && emailAdress.invalid }"
-      >
-      <div *ngIf="f.submitted && emailAdress.invalid" class="invalid-feedback">
+      <div class="form-group">
+        <label for="emailAdress" class="text-white">Email adress:</label>
+        <input name="emailAdress" [(ngModel)]="drawRequest.emailAdress" placeholder="Enter email adresss" type="email" required class="form-control"
+          #emailAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emailAdress.invalid }">
+        <div *ngIf="f.submitted && emailAdress.invalid" class="invalid-feedback">
           <div *ngIf="emailAdress.errors.required">Email is required</div>
           <div *ngIf="emailAdress.errors.email">Email must be a valid email address</div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="serial">Serial:</label>
-      <input name="serial" (keyup)="serialEntered($event)" [(ngModel)]="drawRequest.serialNumber" type="text" placeholder="Enter serial"
-        required class="form-control"
-        #serial="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && serial.invalid}">
-      <div *ngIf="serialValidationResult.isValid == false" class="invalid-feedback">
-        <div>{{ serialValidationResult.errorMessage }}</div>
-      </div>
-      <div *ngIf="f.submitted && serial.invalid" class="invalid-feedback">
+      <div class="form-group">
+        <label for="serial" class="text-white">Serial:</label>
+        <input name="serial" (keyup)="serialEntered($event)" [(ngModel)]="drawRequest.serialNumber" type="text" placeholder="Enter serial"
+          required class="form-control" #serial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && serial.invalid}">
+        <div *ngIf="serialValidationResult.isValid == false" class="invalid-feedback">
+          <div>{{ serialValidationResult.errorMessage }}</div>
+        </div>
+        <div *ngIf="f.submitted && serial.invalid" class="invalid-feedback">
           <div *ngIf="serial.errors.required">Serial is required</div>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
+      <div class="form-group">
         <button class="btn btn-primary">Enter the draw</button>
-    </div>
-  </form>
+      </div>
+    </form>
+  </div>
 </div>

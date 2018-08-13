@@ -4,6 +4,7 @@ import { SerialValidationResponse } from './model/serialValidationResponse';
 import { DrawService } from './services/draw.service';
 import { SubmitDrawRequest } from './model/submitDrawRequest';
 
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,18 @@ export class DrawComponent {
     serialNumber: ''
   };
 
-  constructor(private serialValidationService: SerialValidationService, private drawService: DrawService) {
+  hasAcceptedTermsOfUse = false;
+
+  constructor(private serialValidationService: SerialValidationService, private drawService: DrawService, private router: Router) {
+    this.router = router;
+  }
+
+  declinedTerms() {
+    this.router.navigateByUrl('/home');
+  }
+
+  acceptedTerms() {
+    this.hasAcceptedTermsOfUse = true;
   }
 
   serialEntered(event: any) {
