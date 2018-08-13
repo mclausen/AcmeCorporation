@@ -30,6 +30,7 @@ export class DrawListModel {
   lastName: string;
   email: string;
   serial: string;
+  dateSubmitted: Date;
 }
 
 export class PaginationInfo {
