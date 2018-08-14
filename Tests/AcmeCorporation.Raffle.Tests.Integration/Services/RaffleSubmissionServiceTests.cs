@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AcmeCorporation.Raffle.Domain;
 using AcmeCorporation.Raffle.Domain.Interfaces;
 using AcmeCorporation.Raffle.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using NUnit.Framework;
 
 namespace AcmeCorporation.Raffle.Tests.Integration.Services
@@ -53,8 +55,29 @@ namespace AcmeCorporation.Raffle.Tests.Integration.Services
             Assert.That(submission.EmailAddress.Value, Is.EqualTo(emailAddress));
             
             Assert.That(submission.SerialNumber.UsageCount, Is.EqualTo(1));
-            
         }
         
+        /// <remarks>
+        /// Assuming the pages size is equal to 10!
+        /// This is just an assumption but should be configurable
+        /// </remarks>
+        [TestCase(1, 1)]
+        [TestCase(15, 2)]
+        public async Task GetSubmissions_WithNumberOfItems_GetsCorrectPageNumber(int numberOfItems, int expectedPages)
+        {
+            var submissions = Enumerable.Range(0, numberOfItems)
+                .Select(indexer => new RaffleSubmission(
+                    firstName: Guid.NewGuid().ToString(),
+                    lastName: Guid.NewGuid().ToString(),
+                    emailAddress: new EmailAddress($"{Guid.NewGuid().ToString()}@{Guid.NewGuid().ToString()}.com"),
+                    serialNumber: SerialNumber.CreateNewSerialNumber(Guid.NewGuid().ToString())));
+
+            await Context.RaffleSubmissions.AddRangeAsync(submissions);
+            await Context.SaveChangesAsync();
+            
+            var result = await sut.GetSubmissions(1);
+            
+            Assert.That(result.NumberOfPages, Is.EqualTo(expectedPages));
+        }
     }
 }
