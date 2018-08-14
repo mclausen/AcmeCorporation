@@ -42,7 +42,7 @@ namespace AcmeCorporation.Raffle.WebApi.Controllers
             var submission = await _submissionService.Submit(request.FirstName, request.LastName, new EmailAddress(request.EmailAddress),
                 serialNumber);
 
-            var dto = submission.ToDto();
+            var dto = submission.ToDto(includeSerial: true);
             return new OkObjectResult(dto);
         }
     }
