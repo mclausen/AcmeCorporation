@@ -35,7 +35,7 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
 
         public async Task<PagedRaffleSubmissionsResult> GetSubmissions(int page = 1)
         {
-            const int resultsPrPage = 10;
+            const int resultsPrPage = 10; // Should be put in configuration
             var numberOfSubmissions = _dbContext.RaffleSubmissions.Count();
 
             var numberOfPages = (int) Math.Ceiling(numberOfSubmissions / (double)resultsPrPage);
@@ -43,9 +43,9 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
 
             var submissions = await _dbContext.RaffleSubmissions
                 .Include(x => x.SerialNumber)
+                .OrderBy(x => x.SubmissionTimeUtc)
                 .Skip(skip)
                 .Take(resultsPrPage)
-                .OrderBy(x => x.SubmissionTimeUtc)
                 .ToListAsync();
 
             return new PagedRaffleSubmissionsResult(numberOfPages, page, submissions);
