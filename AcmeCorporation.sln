@@ -1,33 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{8BC45422-8F5D-4423-8D53-6C3EFACF7337}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{00E4E18E-4E24-4F3A-8C3F-75774959A3ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Domain", "Src\AcmeCorporation.Raffle.Domain\AcmeCorporation.Raffle.Domain.csproj", "{45BE1791-FC79-487E-A415-4690E222EBFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeCorporation.Raffle.Domain", "Src\AcmeCorporation.Raffle.Domain\AcmeCorporation.Raffle.Domain.csproj", "{45BE1791-FC79-487E-A415-4690E222EBFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Infrastructure", "Src\AcmeCorporation.Raffle.Infrastructure\AcmeCorporation.Raffle.Infrastructure.csproj", "{D91D8A8D-D54D-4AB9-94CE-A2BC78792A7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeCorporation.Raffle.Infrastructure", "Src\AcmeCorporation.Raffle.Infrastructure\AcmeCorporation.Raffle.Infrastructure.csproj", "{D91D8A8D-D54D-4AB9-94CE-A2BC78792A7E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeCorporation.Raffle.WebApi", "Src\AcmeCorporation.Raffle.WebApi\AcmeCorporation.Raffle.WebApi.csproj", "{69F55F04-E7E4-4CE3-BFF7-F5A596EB3D8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.WebApi", "Src\AcmeCorporation.Raffle.WebApi\AcmeCorporation.Raffle.WebApi.csproj", "{69F55F04-E7E4-4CE3-BFF7-F5A596EB3D8F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ECCA6A19-E803-43BB-AB83-569E57A9CA21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeCorporation.Raffle.Tests", "Tests\AcmeCorporation.Raffle.Tests\AcmeCorporation.Raffle.Tests.csproj", "{C7D045A2-B67C-44E0-B518-35B8D76EF967}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Tests", "Tests\AcmeCorporation.Raffle.Tests\AcmeCorporation.Raffle.Tests.csproj", "{C7D045A2-B67C-44E0-B518-35B8D76EF967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeCorporation.Raffle.Tests.Integration", "Tests\AcmeCorporation.Raffle.Tests.Integration\AcmeCorporation.Raffle.Tests.Integration.csproj", "{BA019711-BD99-43B9-B3C4-4B9D58D377F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Tests.Integration", "Tests\AcmeCorporation.Raffle.Tests.Integration\AcmeCorporation.Raffle.Tests.Integration.csproj", "{BA019711-BD99-43B9-B3C4-4B9D58D377F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcmeCorporation.Client", "Src\AcmeCorporation.Client\AcmeCorporation.Client.csproj", "{AB78B788-F552-46FA-9A4C-310998585017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{45BE1791-FC79-487E-A415-4690E222EBFB} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
-		{D91D8A8D-D54D-4AB9-94CE-A2BC78792A7E} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
-		{69F55F04-E7E4-4CE3-BFF7-F5A596EB3D8F} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
-		{ECCA6A19-E803-43BB-AB83-569E57A9CA21} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
-		{C7D045A2-B67C-44E0-B518-35B8D76EF967} = {ECCA6A19-E803-43BB-AB83-569E57A9CA21}
-		{BA019711-BD99-43B9-B3C4-4B9D58D377F0} = {ECCA6A19-E803-43BB-AB83-569E57A9CA21}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{45BE1791-FC79-487E-A415-4690E222EBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -50,5 +45,23 @@ Global
 		{BA019711-BD99-43B9-B3C4-4B9D58D377F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA019711-BD99-43B9-B3C4-4B9D58D377F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA019711-BD99-43B9-B3C4-4B9D58D377F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB78B788-F552-46FA-9A4C-310998585017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB78B788-F552-46FA-9A4C-310998585017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB78B788-F552-46FA-9A4C-310998585017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB78B788-F552-46FA-9A4C-310998585017}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45BE1791-FC79-487E-A415-4690E222EBFB} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
+		{D91D8A8D-D54D-4AB9-94CE-A2BC78792A7E} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
+		{69F55F04-E7E4-4CE3-BFF7-F5A596EB3D8F} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
+		{ECCA6A19-E803-43BB-AB83-569E57A9CA21} = {8BC45422-8F5D-4423-8D53-6C3EFACF7337}
+		{C7D045A2-B67C-44E0-B518-35B8D76EF967} = {ECCA6A19-E803-43BB-AB83-569E57A9CA21}
+		{BA019711-BD99-43B9-B3C4-4B9D58D377F0} = {ECCA6A19-E803-43BB-AB83-569E57A9CA21}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03E110E5-C678-4958-AF8C-0B7F984A296D}
 	EndGlobalSection
 EndGlobal
