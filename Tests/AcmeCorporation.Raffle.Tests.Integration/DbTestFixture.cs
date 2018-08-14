@@ -25,10 +25,12 @@ namespace AcmeCorporation.Raffle.Tests.Integration
         [TearDown]
         public void TearDown()
         {
+            DoTeardown();
             Context.Dispose();
             Context = null;
         }
 
         public virtual void DoSetup() {}
+        public virtual void DoTeardown() {}
     }
 }

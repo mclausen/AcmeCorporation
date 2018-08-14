@@ -20,6 +20,13 @@ namespace AcmeCorporation.Raffle.Tests.Integration.Services
             sut = new RaffleSubmissionService(Context);
         }
 
+        public override void DoTeardown()
+        {
+            Context.RaffleSubmissions.RemoveRange(Context.RaffleSubmissions);
+            Context.SerialNumbers.RemoveRange(Context.SerialNumbers);
+            Context.SaveChanges();
+        }
+
         [Test]
         public async Task Submit_SerialNumberIsNull_Throws()
         {
@@ -63,6 +70,7 @@ namespace AcmeCorporation.Raffle.Tests.Integration.Services
         /// </remarks>
         [TestCase(1, 1)]
         [TestCase(15, 2)]
+        [TestCase(21, 3)]
         public async Task GetSubmissions_WithNumberOfItems_GetsCorrectPageNumber(int numberOfItems, int expectedPages)
         {
             var submissions = Enumerable.Range(0, numberOfItems)
