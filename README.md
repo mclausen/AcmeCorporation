@@ -24,7 +24,7 @@ Make sure that you run it as console and not under IISExpress
 
 ![alt text](runconfig.PNG "Visual studio configuraion")
 
-**
+**The Console way**
 if the console is your prefered weapon of choice you can go to the console and type the following commands
  1. `dotnet build`
  2. `dotnet restore`
