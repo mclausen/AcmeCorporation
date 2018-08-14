@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AcmeCorporation.Raffle.Domain.Interfaces;
 using AcmeCorporation.Raffle.Infrastructure.Services;
 using AcmeCorporation.Raffle.Infrastructure.Storage;
+using AcmeCorporation.Raffle.WebApi.Extensions;
 using AcmeCorporation.Raffle.WebApi.Filters;
 using AcmeCorporation.Raffle.WebApi.Middleware;
 using Microsoft.AspNetCore.Builder;
@@ -72,18 +73,11 @@ namespace AcmeCorporation.Raffle.WebApi
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
-            app.UseMvc(options =>
-            {
-            });
-
+            app.UseMvc();
             
+            app.MigrateDabase();
 
-            using (var dbContext = app.ApplicationServices.GetService<RaffleDbContext>())
-            {
-                dbContext.Database.Migrate();
-                dbContext.Database.EnsureCreated();
-            }
         }
+
     }
 }
