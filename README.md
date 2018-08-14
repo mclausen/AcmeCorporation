@@ -1,6 +1,6 @@
 # Acme Corporation
 
-[![N|Solid](http://www.open-source-guide.com/var/site_smile/storage/images/guide-os/actualites/umbraco-7-les-nouveautes-du-back-office/526551-1-fre-FR/Umbraco-7%C2%A0-les-nouveaut%C3%A9s-du-back-office_actualite_home.png)](https://umbraco.com/)
+[![N|Solid](https://umbraco.com/media/1947/umbraco-logo-white-background.png)](https://umbraco.com/)
 
 This projects has been created as part of the Umbraco new hire coding challenge, so lets go!
 
