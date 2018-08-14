@@ -30,7 +30,7 @@ export class DrawService {
   }
 
   getDrawSubmissions(page: number) {
-    const url = environment.endpointUrl + '/submissions/' + page;
+    const url = environment.endpointUrl + '/submissions/pages/' + page;
     return this.http.get<PagedDrawSubmissionsResponse>(url);
   }
 }
