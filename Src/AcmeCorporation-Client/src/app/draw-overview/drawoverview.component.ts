@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DrawService} from '../services/draw.service';
 import { PagedDrawSubmissionsResponse } from '../services/PagedDrawSubmissionsResponse';
-import { DrawSubmissionListingsDto } from '../services/DrawSubmissionlistingsDto';
+import { Title } from '../../../node_modules/@angular/platform-browser';
 
 @Component({
   selector: 'app-drawoverview',
@@ -12,7 +12,8 @@ export class DrawOverviewComponent implements OnInit {
 
   listingResponse: PagedDrawSubmissionsResponse;
 
-  constructor(private drawService: DrawService) {
+  constructor(private drawService: DrawService, title: Title) {
+    title.setTitle('See who entered the draw');
   }
 
   ngOnInit(): void {

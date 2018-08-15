@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -31,7 +31,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [SerialValidationService, DrawService],
+  providers: [SerialValidationService, DrawService, Title],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import { DrawService } from '../services/draw.service';
 import { SubmitDrawRequest } from '../services/submitDrawRequest';
 
 import {Router} from '@angular/router';
+import { Title } from '../../../node_modules/@angular/platform-browser';
 
 
 @Component({
@@ -28,7 +29,9 @@ export class DrawComponent {
 
   hasAcceptedTermsOfUse = false;
 
-  constructor(private serialValidationService: SerialValidationService, private drawService: DrawService, private router: Router) {
+  constructor(private serialValidationService: SerialValidationService, private drawService: DrawService, private router: Router,
+    private title: Title ) {
+    this.title.setTitle('Enter the draw!');
     this.router = router;
   }
 
