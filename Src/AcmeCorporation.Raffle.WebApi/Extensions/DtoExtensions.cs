@@ -21,7 +21,7 @@ namespace AcmeCorporation.Raffle.WebApi.Extensions
             };
         }
 
-        public static PagedDrawSubmissionsDto ToDto(this PagedRaffleSubmissionsResult self)
+        public static PagedDrawSubmissionsDto ToDto(this PagedDrawSubmissionsResult self)
         {
             return new PagedDrawSubmissionsDto()
             {

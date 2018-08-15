@@ -2,9 +2,9 @@
 
 namespace AcmeCorporation.Raffle.Domain.Interfaces
 {
-    public interface IRaffleSubmissionService
+    public interface IDrawSubmissionService
     {
         Task<RaffleSubmission> Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber);
-        Task<PagedRaffleSubmissionsResult> GetSubmissions(int page);
+        Task<PagedDrawSubmissionsResult> GetSubmissions(int page);
     }
 }

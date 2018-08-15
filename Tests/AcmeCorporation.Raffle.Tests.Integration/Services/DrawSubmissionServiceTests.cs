@@ -11,13 +11,13 @@ using NUnit.Framework;
 namespace AcmeCorporation.Raffle.Tests.Integration.Services
 {
     [TestFixture]
-    public class RaffleSubmissionServiceTests : DbTestFixture
+    public class DrawSubmissionServiceTests : DbTestFixture
     {
-        private IRaffleSubmissionService sut;
+        private IDrawSubmissionService sut;
         
         public override void DoSetup()
         {
-            sut = new RaffleSubmissionService(Context);
+            sut = new DrawSubmissionService(Context);
         }
 
         public override void DoTeardown()

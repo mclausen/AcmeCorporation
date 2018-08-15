@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AcmeCorporation.Raffle.Infrastructure.Services
 {
-    public class RaffleSubmissionService : IRaffleSubmissionService
+    public class DrawSubmissionService : IDrawSubmissionService
     {
         private readonly RaffleDbContext _dbContext;
 
-        public RaffleSubmissionService(RaffleDbContext dbContext)
+        public DrawSubmissionService(RaffleDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -33,7 +33,7 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
             return submission;
         }
 
-        public async Task<PagedRaffleSubmissionsResult> GetSubmissions(int page = 1)
+        public async Task<PagedDrawSubmissionsResult> GetSubmissions(int page = 1)
         {
             const int resultsPrPage = 10; // Should be put in configuration
             var numberOfSubmissions = _dbContext.RaffleSubmissions.Count();
@@ -48,7 +48,7 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
                 .Take(resultsPrPage)
                 .ToListAsync();
 
-            return new PagedRaffleSubmissionsResult(numberOfPages, page, submissions);
+            return new PagedDrawSubmissionsResult(numberOfPages, page, submissions);
         }
     }
 }

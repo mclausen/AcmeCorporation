@@ -12,12 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace AcmeCorporation.Raffle.WebApi.Controllers
 {
     [Route("submissions")]
-    public class RaffleSubmissionsController : ControllerBase
+    public class DrawSubmissionsController : ControllerBase
     {
-        private readonly IRaffleSubmissionService _submissionService;
+        private readonly IDrawSubmissionService _submissionService;
         private readonly ISerialNumberRepository _serialNumberRepository;
 
-        public RaffleSubmissionsController(IRaffleSubmissionService submissionService, ISerialNumberRepository serialNumberRepository)
+        public DrawSubmissionsController(IDrawSubmissionService submissionService, ISerialNumberRepository serialNumberRepository)
         {
             _submissionService = submissionService;
             _serialNumberRepository = serialNumberRepository;

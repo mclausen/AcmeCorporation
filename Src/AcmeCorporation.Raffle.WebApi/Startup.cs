@@ -73,7 +73,7 @@ namespace AcmeCorporation.Raffle.WebApi
 
 
             services.AddTransient<ISerialNumberRepository, SerialNumberRespository>();
-            services.AddTransient<IRaffleSubmissionService, RaffleSubmissionService>();
+            services.AddTransient<IDrawSubmissionService, DrawSubmissionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

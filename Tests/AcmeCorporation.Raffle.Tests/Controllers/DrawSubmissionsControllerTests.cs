@@ -11,18 +11,18 @@ using NUnit.Framework;
 namespace AcmeCorporation.Raffle.Tests.Controllers
 {
     [TestFixture]
-    public class RaffleSubmissionsControllerTests
+    public class DrawSubmissionsControllerTests
     {
-        private RaffleSubmissionsController sut;
-        private Mock<IRaffleSubmissionService> drawSubmissionsServiceMock;
+        private DrawSubmissionsController sut;
+        private Mock<IDrawSubmissionService> drawSubmissionsServiceMock;
         private Mock<ISerialNumberRepository> serialNumberRepositoryMock;
 
         [SetUp]
         public void Setup()
         {
-            drawSubmissionsServiceMock = new Mock<IRaffleSubmissionService>();
+            drawSubmissionsServiceMock = new Mock<IDrawSubmissionService>();
             serialNumberRepositoryMock = new Mock<ISerialNumberRepository>();
-            sut = new RaffleSubmissionsController(drawSubmissionsServiceMock.Object, serialNumberRepositoryMock.Object);
+            sut = new DrawSubmissionsController(drawSubmissionsServiceMock.Object, serialNumberRepositoryMock.Object);
         }
 
         [Test]
