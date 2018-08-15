@@ -6,6 +6,7 @@ using AcmeCorporation.Raffle.Domain.Interfaces;
 using AcmeCorporation.Raffle.Infrastructure.Services;
 using AcmeCorporation.Raffle.WebApi.Extensions;
 using AcmeCorporation.Raffle.WebApi.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AcmeCorporation.Raffle.WebApi.Controllers
@@ -22,6 +23,7 @@ namespace AcmeCorporation.Raffle.WebApi.Controllers
             _serialNumberRepository = serialNumberRepository;
         }
         
+        // [Authorize] if security was enabled this wouldnt be commented out
         [HttpGet, Route("/pages/{page}")] // /pages/to avoid defacto rest getbyId convention
         public async Task<IActionResult> Get(int page)
         {
