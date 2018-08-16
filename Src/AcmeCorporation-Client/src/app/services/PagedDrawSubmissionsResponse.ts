@@ -1,4 +1,4 @@
-import { DrawSubmissionListingsDto } from './DrawSubmissionlistingsDto';
+import { DrawSubmissionListingsDto } from './DrawSubmissionListingsDto';
 
 export class PagedDrawSubmissionsResponse {
   currentPage: number;
