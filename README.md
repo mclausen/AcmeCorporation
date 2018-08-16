@@ -19,6 +19,7 @@ This projects has been created as part of the Umbraco new hire coding challenge,
 ### Server
 
 **The visual studio way**
+
 You can easily run the web server from visual studio by selecting **AcmeCorporation.Draw.WebApi** and hit F5.
 Make sure that you run it as console and not under IISExpress
 
@@ -31,5 +32,12 @@ if the console is your prefered weapon of choice you can go to the console and t
 
 ### Client
 
+**The visual studio way**
+
+You can easily run the web server from visual studio by selecting **AcmeCorporation.Client** and hit F5.
+Make sure that you run it as console and not under IISExpress
+**Make sure that you have installed node packages and installed angular cli globally**
+
+**The Console way**
  1. Open your favorite powershell editor and navigate to '<directory you cloned the project>\Src\AcmeCorporation-Client' and run `ng serve`
  2. Open your browser and go to http://localhost:4200
