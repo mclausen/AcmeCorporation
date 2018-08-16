@@ -17,6 +17,11 @@ namespace AcmeCorporation.Raffle.Infrastructure.Storage
         
         public DrawDbContext(DbContextOptions<DrawDbContext> options) : base(options) {}
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\.\\sharedlocaldb;Initial Catalog=AcmeCorporationDraw;MultipleActiveResultSets=True;");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // SerialNumber

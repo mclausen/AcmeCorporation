@@ -68,7 +68,7 @@ namespace AcmeCorporation.Raffle.WebApi
                 {
                     contextOptions.UseSqlServer(connectionString,
                         sqloptions => sqloptions
-                            .MigrationsAssembly("AcmeCorporation.Raffle.Infrastructure"));
+                            .MigrationsAssembly("AcmeCorporation.Draw.Infrastructure"));
                 });
 
 
