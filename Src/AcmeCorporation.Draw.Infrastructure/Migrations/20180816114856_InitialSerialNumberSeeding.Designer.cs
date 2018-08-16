@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcmeCorporation.Draw.Infrastructure.Migrations
 {
     [DbContext(typeof(DrawDbContext))]
-    [Migration("20180816101852_InitialSerialNumberSeeding")]
+    [Migration("20180816114856_InitialSerialNumberSeeding")]
     partial class InitialSerialNumberSeeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
