@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AcmeCorporation.Draw.Domain.Events;
 using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.Infrastructure.Handlers;
 using AcmeCorporation.Draw.Infrastructure.Services;
 using AcmeCorporation.Draw.Infrastructure.Storage;
 using AcmeCorporation.Draw.WebApi.Extensions;
@@ -35,33 +37,32 @@ namespace AcmeCorporation.Draw.WebApi
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {   
-        
-              /*
-                Here is were i wanted to enable jwt bearer token authentication
-                They i wanted to impment it was having an Identity Server issueing the access
-                tokens, and then have the individual servies validating them.
-              */
-//            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//                        .AddJwtBearer(options =>
-//                        {
-//                            options.TokenValidationParameters = new TokenValidationParameters
-//                            {
-//                                ValidateIssuer = true,
-//                                ValidateAudience = true,
-//                                ValidateLifetime = true,
-//                                ValidateIssuerSigningKey = true,
-//                     
-//                                ValidIssuer = "<path to identity my server>",
-//                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("<signing key>"))
-//                            };
-//                        });
-        
-            
+        {
+
+            RegisterJwtAuthTokenConfiguration();
+            RegisterDababaseConfiguration(services);
+
             services
                 .AddMvc(options => { options.Filters.Add<ModelStateValidationFilter>(); })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            
+
+            RegisterServices(services);
+
+            RegisterEventHandlers(services);
+        }
+
+        
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            services.AddTransient<ISerialNumberRepository, SerialNumberRespository>();
+            services.AddTransient<IDrawSubmissionService, DrawSubmissionService>();
+        }
+
+        private void RegisterDababaseConfiguration(IServiceCollection services)
+        {
             var connectionString = Configuration.GetConnectionString("DrawDbConnectionString");
             services
                 .AddDbContext<DrawDbContext>(contextOptions =>
@@ -70,10 +71,37 @@ namespace AcmeCorporation.Draw.WebApi
                         sqloptions => sqloptions
                             .MigrationsAssembly("AcmeCorporation.Draw.Infrastructure"));
                 });
+        }
 
+        private void RegisterEventHandlers(IServiceCollection services)
+        {
+            services.AddScoped<IEventDispatcher, EventDispatcher>();
 
-            services.AddTransient<ISerialNumberRepository, SerialNumberRespository>();
-            services.AddTransient<IDrawSubmissionService, DrawSubmissionService>();
+            // Handlers
+            services.AddScoped<IHandleDomainEvent<DrawSubmissionRetrievedDomainEvent>, DrawSubmissionRetrievedDomainEventHandler>();
+        }
+
+        public void RegisterJwtAuthTokenConfiguration()
+        {
+            /*
+             Here is were i wanted to enable jwt bearer token authentication
+             They i wanted to impment it was having an Identity Server issueing the access
+             tokens, and then have the individual servies validating them.
+           */
+            //            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //                        .AddJwtBearer(options =>
+            //                        {
+            //                            options.TokenValidationParameters = new TokenValidationParameters
+            //                            {
+            //                                ValidateIssuer = true,
+            //                                ValidateAudience = true,
+            //                                ValidateLifetime = true,
+            //                                ValidateIssuerSigningKey = true,
+            //                     
+            //                                ValidIssuer = "<path to identity my server>",
+            //                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("<signing key>"))
+            //                            };
+            //                        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,7 +115,7 @@ namespace AcmeCorporation.Draw.WebApi
                 .Build()
             );
 
-            app.UseMiddleware<EFUnitOfWorkMiddleware>();
+            //app.UseMiddleware<EFUnitOfWorkMiddleware>();
             
             if (env.IsDevelopment())
             {

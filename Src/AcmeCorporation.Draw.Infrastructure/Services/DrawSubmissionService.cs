@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Events;
 using AcmeCorporation.Draw.Domain.Interfaces;
 using AcmeCorporation.Draw.Infrastructure.Storage;
 using Microsoft.EntityFrameworkCore;
@@ -11,10 +12,12 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
     public class DrawSubmissionService : IDrawSubmissionService
     {
         private readonly DrawDbContext _dbContext;
+        private readonly IEventDispatcher eventDispatcher;
 
-        public DrawSubmissionService(DrawDbContext dbContext)
+        public DrawSubmissionService(DrawDbContext dbContext, IEventDispatcher eventDispatcher)
         {
             _dbContext = dbContext;
+            this.eventDispatcher = eventDispatcher;
         }
         
         public async Task<DrawSubmission> Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber)
@@ -29,6 +32,8 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
                 emailAddress: emailAddress,
                 serialNumber: serialNumber);
             await _dbContext.DrawSubmissions.AddAsync(submission);
+
+            eventDispatcher.EnqueueDomainEvent(new DrawSubmissionRetrievedDomainEvent(submission.Id, emailAddress.Value));
 
             return submission;
         }
