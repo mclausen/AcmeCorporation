@@ -64,7 +64,7 @@ namespace AcmeCorporation.Raffle.WebApi
 
             var connectionString = Configuration.GetConnectionString("DrawDbConnectionString");
             services
-                .AddDbContext<RaffleDbContext>(contextOptions =>
+                .AddDbContext<DrawDbContext>(contextOptions =>
                 {
                     contextOptions.UseSqlServer(connectionString,
                         sqloptions => sqloptions

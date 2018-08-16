@@ -9,15 +9,15 @@ namespace AcmeCorporation.Raffle.Tests.Integration
     public abstract class DbTestFixture
     {
 
-        protected RaffleDbContext Context;
+        protected DrawDbContext Context;
         
         [SetUp]
         public void Setup()
         {
-            var contextOptions = new DbContextOptionsBuilder<RaffleDbContext>();
+            var contextOptions = new DbContextOptionsBuilder<DrawDbContext>();
             contextOptions.UseInMemoryDatabase("RaffleTestDb");
             
-            Context = new RaffleDbContext(contextOptions.Options);
+            Context = new DrawDbContext(contextOptions.Options);
             
             DoSetup();
         }

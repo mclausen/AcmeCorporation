@@ -2,7 +2,7 @@
 
 namespace AcmeCorporation.Raffle.Domain
 {
-    public class RaffleSubmission
+    public class DrawSubmission
     {
         public int Id { get; set; }
         public string FirstName { get; protected set; }
@@ -15,12 +15,12 @@ namespace AcmeCorporation.Raffle.Domain
         /// <summary>
         /// Proxy constructor to make EF happy with the serialization of entity
         /// </summary>
-        protected RaffleSubmission()
+        protected DrawSubmission()
         {
             
         }
         
-        public RaffleSubmission(string firstName, string lastName, EmailAddress emailAddress, SerialNumber serialNumber)
+        public DrawSubmission(string firstName, string lastName, EmailAddress emailAddress, SerialNumber serialNumber)
         {
             if(string.IsNullOrEmpty(firstName)) throw new ArgumentNullException(nameof(firstName));
             if(string.IsNullOrEmpty(lastName)) throw new ArgumentNullException(nameof(lastName));

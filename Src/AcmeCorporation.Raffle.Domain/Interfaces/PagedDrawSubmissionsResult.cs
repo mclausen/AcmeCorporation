@@ -6,9 +6,9 @@ namespace AcmeCorporation.Raffle.Domain.Interfaces
     {
         public int NumberOfPages { get; protected set; }
         public int CurrentPage { get; protected set; }
-        public List<RaffleSubmission> Submissions { get; protected set; }
+        public List<DrawSubmission> Submissions { get; protected set; }
 
-        public PagedDrawSubmissionsResult(int numberOfPages, int currentPage, List<RaffleSubmission> submissions)
+        public PagedDrawSubmissionsResult(int numberOfPages, int currentPage, List<DrawSubmission> submissions)
         {
             NumberOfPages = numberOfPages;
             CurrentPage = currentPage;

@@ -8,9 +8,9 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
 {
     public class SerialNumberRespository : ISerialNumberRepository
     {
-        private readonly RaffleDbContext _context;
+        private readonly DrawDbContext _context;
 
-        public SerialNumberRespository(RaffleDbContext context)
+        public SerialNumberRespository(DrawDbContext context)
         {
             _context = context;
         }

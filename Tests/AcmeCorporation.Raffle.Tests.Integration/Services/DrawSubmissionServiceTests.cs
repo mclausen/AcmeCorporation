@@ -74,7 +74,7 @@ namespace AcmeCorporation.Raffle.Tests.Integration.Services
         public async Task GetSubmissions_WithNumberOfItems_GetsCorrectPageNumber(int numberOfItems, int expectedPages)
         {
             var submissions = Enumerable.Range(0, numberOfItems)
-                .Select(indexer => new RaffleSubmission(
+                .Select(indexer => new DrawSubmission(
                     firstName: Guid.NewGuid().ToString(),
                     lastName: Guid.NewGuid().ToString(),
                     emailAddress: new EmailAddress($"{Guid.NewGuid().ToString()}@{Guid.NewGuid().ToString()}.com"),

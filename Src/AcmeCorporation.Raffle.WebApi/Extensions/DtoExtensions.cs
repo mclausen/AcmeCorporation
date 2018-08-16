@@ -8,7 +8,7 @@ namespace AcmeCorporation.Raffle.WebApi.Extensions
 {
     public static class DtoExtensions
     {
-        public static DrawSubmissionListingDto ToDto(this RaffleSubmission self, bool includeSerial = false)
+        public static DrawSubmissionListingDto ToDto(this DrawSubmission self, bool includeSerial = false)
         {
             return new DrawSubmissionListingDto()
             {

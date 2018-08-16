@@ -16,13 +16,13 @@ namespace AcmeCorporation.Raffle.WebApi.Middleware
         
         public async Task InvokeAsync(HttpContext context)
         {
-            var session = context.RequestServices.GetService(typeof(RaffleDbContext));
+            var session = context.RequestServices.GetService(typeof(DrawDbContext));
             if(session == null)
                 throw new InvalidOperationException("Could not retrieve current session");
             
             await _next(context);
 
-            var dbContext = session as RaffleDbContext;
+            var dbContext = session as DrawDbContext;
             await dbContext.SaveChangesAsync();
         }
     }

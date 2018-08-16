@@ -44,7 +44,7 @@ namespace AcmeCorporation.Raffle.Tests.Controllers
                 .ReturnsAsync(() => serialNumber);
 
             drawSubmissionsServiceMock.Setup(x =>x.Submit(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<EmailAddress>(), It.IsAny<SerialNumber>()))
-                .ReturnsAsync(() => new RaffleSubmission(dto.FirstName, dto.LastName, email, serialNumber));
+                .ReturnsAsync(() => new DrawSubmission(dto.FirstName, dto.LastName, email, serialNumber));
             
             // Act
             var response = await sut.SubmitDraw(dto);

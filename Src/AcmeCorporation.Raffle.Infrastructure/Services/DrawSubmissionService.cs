@@ -10,20 +10,20 @@ namespace AcmeCorporation.Raffle.Infrastructure.Services
 {
     public class DrawSubmissionService : IDrawSubmissionService
     {
-        private readonly RaffleDbContext _dbContext;
+        private readonly DrawDbContext _dbContext;
 
-        public DrawSubmissionService(RaffleDbContext dbContext)
+        public DrawSubmissionService(DrawDbContext dbContext)
         {
             _dbContext = dbContext;
         }
         
-        public async Task<RaffleSubmission> Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber)
+        public async Task<DrawSubmission> Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber)
         {
             if (serialNumber == null) throw new ArgumentNullException(nameof(serialNumber));
             
             serialNumber.Use();
             
-            var submission = new RaffleSubmission(
+            var submission = new DrawSubmission(
                 firstName: firstName, 
                 lastName: lastname, 
                 emailAddress: emailAddress,

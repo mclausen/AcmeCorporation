@@ -11,7 +11,7 @@ namespace AcmeCorporation.Raffle.WebApi.Extensions
         {
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<RaffleDbContext>();
+                var context = serviceScope.ServiceProvider.GetService<DrawDbContext>();
                 context.Database.Migrate();
             }
         }
