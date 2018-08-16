@@ -49,18 +49,24 @@ export class DrawComponent {
       return;
     }
 
+    // add some throttle logic to mitigate some of the serverload
+
     this.serialValidationService.validateSerialNumber(serial)
       .subscribe(result => {
         this.serialValidationResult = result;
-        console.log(this.serialValidationResult);
       });
     }
 
     onSubmit() {
+
+      if(this.serialValidationResult.isValid === false) {
+        return;
+      }
+      
+
       this.drawService.submitDraw(this.drawRequest)
        .subscribe(response => {
          this.router.navigateByUrl('/receipt');
-          console.log(response);
         });
     }
   }

@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Enter the draw</button>
+        <button class="btn btn-primary" [ngClass]="{ 'disabled': f.form.valid == false || serialValidationResult.isValid == false}">Enter the draw</button>
       </div>
     </form>
   </div>
