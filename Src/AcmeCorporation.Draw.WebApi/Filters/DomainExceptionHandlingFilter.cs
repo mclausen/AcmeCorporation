@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace AcmeCorporation.Draw.WebApi.Filters
 {
-    public class DomainErrorFilter : ExceptionFilterAttribute
+    public class DomainExceptionHandlingFilter : ExceptionFilterAttribute
     {
         public override void OnException(ExceptionContext context)
         {

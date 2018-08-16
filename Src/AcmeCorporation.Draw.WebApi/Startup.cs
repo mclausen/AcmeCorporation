@@ -43,7 +43,11 @@ namespace AcmeCorporation.Draw.WebApi
             RegisterDababaseConfiguration(services);
 
             services
-                .AddMvc(options => { options.Filters.Add<ModelStateValidationFilter>(); })
+                .AddMvc(options => 
+                {
+                    options.Filters.Add<ModelStateValidationFilter>();
+                    options.Filters.Add<DomainExceptionHandlingFilter>();
+                })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             
@@ -119,7 +123,7 @@ namespace AcmeCorporation.Draw.WebApi
             
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
             else
             {
