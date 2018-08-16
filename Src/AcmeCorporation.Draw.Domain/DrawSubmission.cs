@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AcmeCorporation.Raffle.Domain
+namespace AcmeCorporation.Draw.Domain
 {
     public class DrawSubmission
     {

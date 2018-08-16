@@ -1,4 +1,4 @@
-﻿namespace AcmeCorporation.Raffle.WebApi.Model
+﻿namespace AcmeCorporation.Draw.WebApi.Model
 {
     public class SerialNumberValidationDto
     {

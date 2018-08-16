@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using AcmeCorporation.Raffle.Domain;
-using AcmeCorporation.Raffle.Domain.Interfaces;
-using AcmeCorporation.Raffle.Infrastructure.Storage;
+using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.Infrastructure.Storage;
 using Microsoft.EntityFrameworkCore;
 
-namespace AcmeCorporation.Raffle.Infrastructure.Services
+namespace AcmeCorporation.Draw.Infrastructure.Services
 {
     public class SerialNumberRespository : ISerialNumberRepository
     {

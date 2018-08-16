@@ -1,9 +1,9 @@
 ﻿using System;
-using AcmeCorporation.Raffle.Infrastructure.Storage;
+using AcmeCorporation.Draw.Infrastructure.Storage;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
-namespace AcmeCorporation.Raffle.Tests.Integration
+namespace AcmeCorporation.Draw.Tests.Integration
 {
     [TestFixture]
     public abstract class DbTestFixture

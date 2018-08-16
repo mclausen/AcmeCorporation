@@ -1,8 +1,8 @@
 ﻿using System;
-using AcmeCorporation.Raffle.Domain;
+using AcmeCorporation.Draw.Domain;
 using NUnit.Framework;
 
-namespace AcmeCorporation.Raffle.Tests
+namespace AcmeCorporation.Draw.Tests
 {
     [TestFixture]
     public class EmailAddressTests

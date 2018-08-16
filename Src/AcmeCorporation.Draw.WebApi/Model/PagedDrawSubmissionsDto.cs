@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AcmeCorporation.Raffle.WebApi.Model
+namespace AcmeCorporation.Draw.WebApi.Model
 {
     public class PagedDrawSubmissionsDto
     {

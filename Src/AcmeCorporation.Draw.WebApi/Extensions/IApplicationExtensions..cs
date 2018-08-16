@@ -1,9 +1,9 @@
-﻿using AcmeCorporation.Raffle.Infrastructure.Storage;
+﻿using AcmeCorporation.Draw.Infrastructure.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AcmeCorporation.Raffle.WebApi.Extensions
+namespace AcmeCorporation.Draw.WebApi.Extensions
 {
     public static class IApplicationExtensions
     {

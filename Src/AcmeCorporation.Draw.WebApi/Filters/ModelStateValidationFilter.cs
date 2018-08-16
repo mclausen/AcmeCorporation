@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace AcmeCorporation.Raffle.WebApi.Filters
+namespace AcmeCorporation.Draw.WebApi.Filters
 {
     public class ModelStateValidationFilter : ActionFilterAttribute
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AcmeCorporation.Raffle.Domain.Interfaces;
-using AcmeCorporation.Raffle.Infrastructure.Services;
-using AcmeCorporation.Raffle.Infrastructure.Storage;
-using AcmeCorporation.Raffle.WebApi.Extensions;
-using AcmeCorporation.Raffle.WebApi.Filters;
-using AcmeCorporation.Raffle.WebApi.Middleware;
+using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.Infrastructure.Services;
+using AcmeCorporation.Draw.Infrastructure.Storage;
+using AcmeCorporation.Draw.WebApi.Extensions;
+using AcmeCorporation.Draw.WebApi.Filters;
+using AcmeCorporation.Draw.WebApi.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +22,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 
-namespace AcmeCorporation.Raffle.WebApi
+namespace AcmeCorporation.Draw.WebApi
 {
     public class Startup
     {

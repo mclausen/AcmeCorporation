@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace AcmeCorporation.Raffle.WebApi
+namespace AcmeCorporation.Draw.WebApi
 {
     public class Program
     {

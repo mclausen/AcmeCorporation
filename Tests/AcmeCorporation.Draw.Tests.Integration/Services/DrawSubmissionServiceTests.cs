@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using AcmeCorporation.Raffle.Domain;
-using AcmeCorporation.Raffle.Domain.Interfaces;
-using AcmeCorporation.Raffle.Infrastructure.Services;
+using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
 
-namespace AcmeCorporation.Raffle.Tests.Integration.Services
+namespace AcmeCorporation.Draw.Tests.Integration.Services
 {
     [TestFixture]
     public class DrawSubmissionServiceTests : DbTestFixture

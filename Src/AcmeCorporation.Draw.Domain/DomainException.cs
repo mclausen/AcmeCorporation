@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AcmeCorporation.Raffle.Domain
+namespace AcmeCorporation.Draw.Domain
 {
     /// <summary>
     /// Domain exception is thrown when a business rule has been violated

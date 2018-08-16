@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using AcmeCorporation.Raffle.Domain;
-using AcmeCorporation.Raffle.Domain.Interfaces;
-using AcmeCorporation.Raffle.WebApi.Model;
+using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.WebApi.Model;
 
-namespace AcmeCorporation.Raffle.WebApi.Extensions
+namespace AcmeCorporation.Draw.WebApi.Extensions
 {
     public static class DtoExtensions
     {

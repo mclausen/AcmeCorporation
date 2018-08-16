@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AcmeCorporation.Raffle.Domain.Interfaces
+namespace AcmeCorporation.Draw.Domain.Interfaces
 {
     public interface ISerialNumberRepository
     {

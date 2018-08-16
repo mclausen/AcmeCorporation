@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace AcmeCorporation.Raffle.Domain
+namespace AcmeCorporation.Draw.Domain
 {
     public class EmailAddress
     {

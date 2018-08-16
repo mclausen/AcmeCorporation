@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AcmeCorporation.Raffle.Infrastructure.Storage;
+using AcmeCorporation.Draw.Infrastructure.Storage;
 using Microsoft.AspNetCore.Http;
 
-namespace AcmeCorporation.Raffle.WebApi.Middleware
+namespace AcmeCorporation.Draw.WebApi.Middleware
 {
     public class EFUnitOfWorkMiddleware
     {

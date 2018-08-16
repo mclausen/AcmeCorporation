@@ -1,15 +1,11 @@
-using System;
-using System.Linq;
 using System.Threading.Tasks;
-using AcmeCorporation.Raffle.Domain;
-using AcmeCorporation.Raffle.Domain.Interfaces;
-using AcmeCorporation.Raffle.Infrastructure.Services;
-using AcmeCorporation.Raffle.WebApi.Extensions;
-using AcmeCorporation.Raffle.WebApi.Model;
-using Microsoft.AspNetCore.Authorization;
+using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.WebApi.Extensions;
+using AcmeCorporation.Draw.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AcmeCorporation.Raffle.WebApi.Controllers
+namespace AcmeCorporation.Draw.WebApi.Controllers
 {
     [Route("submissions")]
     public class DrawSubmissionsController : ControllerBase

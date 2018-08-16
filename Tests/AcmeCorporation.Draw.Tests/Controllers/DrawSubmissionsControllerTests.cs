@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AcmeCorporation.Raffle.Domain;
-using AcmeCorporation.Raffle.Domain.Interfaces;
-using AcmeCorporation.Raffle.WebApi.Controllers;
-using AcmeCorporation.Raffle.WebApi.Model;
+using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Interfaces;
+using AcmeCorporation.Draw.WebApi.Controllers;
+using AcmeCorporation.Draw.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 
-namespace AcmeCorporation.Raffle.Tests.Controllers
+namespace AcmeCorporation.Draw.Tests.Controllers
 {
     [TestFixture]
     public class DrawSubmissionsControllerTests

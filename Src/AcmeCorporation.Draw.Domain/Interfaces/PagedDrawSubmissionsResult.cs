@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AcmeCorporation.Raffle.Domain.Interfaces
+namespace AcmeCorporation.Draw.Domain.Interfaces
 {
     public class PagedDrawSubmissionsResult
     {
