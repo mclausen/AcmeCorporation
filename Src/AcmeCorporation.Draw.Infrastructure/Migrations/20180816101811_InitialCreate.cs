@@ -22,7 +22,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RaffleSubmissions",
+                name: "DrawSubmissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -35,9 +35,9 @@ namespace AcmeCorporation.Draw.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RaffleSubmissions", x => x.Id);
+                    table.PrimaryKey("PK_DrawSubmissions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RaffleSubmissions_SerialNumbers_SerialNumberSerial",
+                        name: "FK_DrawSubmissions_SerialNumbers_SerialNumberSerial",
                         column: x => x.SerialNumberSerial,
                         principalTable: "SerialNumbers",
                         principalColumn: "Serial",
@@ -45,15 +45,15 @@ namespace AcmeCorporation.Draw.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RaffleSubmissions_SerialNumberSerial",
-                table: "RaffleSubmissions",
+                name: "IX_DrawSubmissions_SerialNumberSerial",
+                table: "DrawSubmissions",
                 column: "SerialNumberSerial");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "RaffleSubmissions");
+                name: "DrawSubmissions");
 
             migrationBuilder.DropTable(
                 name: "SerialNumbers");

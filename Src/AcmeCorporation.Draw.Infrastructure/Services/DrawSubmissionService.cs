@@ -28,7 +28,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
                 lastName: lastname, 
                 emailAddress: emailAddress,
                 serialNumber: serialNumber);
-            await _dbContext.RaffleSubmissions.AddAsync(submission);
+            await _dbContext.DrawSubmissions.AddAsync(submission);
 
             return submission;
         }
@@ -36,12 +36,12 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
         public async Task<PagedDrawSubmissionsResult> GetSubmissions(int page = 1)
         {
             const int resultsPrPage = 10; // Should be put in configuration
-            var numberOfSubmissions = _dbContext.RaffleSubmissions.Count();
+            var numberOfSubmissions = _dbContext.DrawSubmissions.Count();
 
             var numberOfPages = (int) Math.Ceiling(numberOfSubmissions / (double)resultsPrPage);
             var skip = resultsPrPage * page;
 
-            var submissions = await _dbContext.RaffleSubmissions
+            var submissions = await _dbContext.DrawSubmissions
                 .Include(x => x.SerialNumber)
                 .OrderBy(x => x.SubmissionTimeUtc)
                 .Skip(skip)

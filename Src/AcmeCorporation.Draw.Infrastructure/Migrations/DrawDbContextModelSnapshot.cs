@@ -19,7 +19,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AcmeCorporation.Raffle.Domain.DrawSubmission", b =>
+            modelBuilder.Entity("AcmeCorporation.Draw.Domain.DrawSubmission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,10 +42,10 @@ namespace AcmeCorporation.Draw.Infrastructure.Migrations
 
                     b.HasIndex("SerialNumberSerial");
 
-                    b.ToTable("RaffleSubmissions");
+                    b.ToTable("DrawSubmissions");
                 });
 
-            modelBuilder.Entity("AcmeCorporation.Raffle.Domain.SerialNumber", b =>
+            modelBuilder.Entity("AcmeCorporation.Draw.Domain.SerialNumber", b =>
                 {
                     b.Property<string>("Serial")
                         .ValueGeneratedOnAdd();
@@ -61,9 +61,9 @@ namespace AcmeCorporation.Draw.Infrastructure.Migrations
                     b.ToTable("SerialNumbers");
                 });
 
-            modelBuilder.Entity("AcmeCorporation.Raffle.Domain.DrawSubmission", b =>
+            modelBuilder.Entity("AcmeCorporation.Draw.Domain.DrawSubmission", b =>
                 {
-                    b.HasOne("AcmeCorporation.Raffle.Domain.SerialNumber", "SerialNumber")
+                    b.HasOne("AcmeCorporation.Draw.Domain.SerialNumber", "SerialNumber")
                         .WithMany()
                         .HasForeignKey("SerialNumberSerial");
                 });

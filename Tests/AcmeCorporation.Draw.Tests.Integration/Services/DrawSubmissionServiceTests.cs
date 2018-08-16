@@ -22,7 +22,7 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
 
         public override void DoTeardown()
         {
-            Context.RaffleSubmissions.RemoveRange(Context.RaffleSubmissions);
+            Context.DrawSubmissions.RemoveRange(Context.DrawSubmissions);
             Context.SerialNumbers.RemoveRange(Context.SerialNumbers);
             Context.SaveChanges();
         }
@@ -52,7 +52,7 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
             
             
             // Assert
-            var submission = await Context.RaffleSubmissions
+            var submission = await Context.DrawSubmissions
                 .Include(x => x.SerialNumber) // Loads the adjacent entity to only roundtrip the database once
                 .SingleOrDefaultAsync();
             Assert.NotNull(submission);
@@ -80,7 +80,7 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
                     emailAddress: new EmailAddress($"{Guid.NewGuid().ToString()}@{Guid.NewGuid().ToString()}.com"),
                     serialNumber: SerialNumber.CreateNewSerialNumber(Guid.NewGuid().ToString())));
 
-            await Context.RaffleSubmissions.AddRangeAsync(submissions);
+            await Context.DrawSubmissions.AddRangeAsync(submissions);
             await Context.SaveChangesAsync();
             
             var result = await sut.GetSubmissions(1);

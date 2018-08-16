@@ -8,7 +8,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Storage
     public class DrawDbContext : DbContext
     {
         public DbSet<SerialNumber> SerialNumbers { get; set; }
-        public DbSet<DrawSubmission> RaffleSubmissions { get; set; }
+        public DbSet<DrawSubmission> DrawSubmissions { get; set; }
 
         public DrawDbContext()
         {
