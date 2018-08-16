@@ -13,13 +13,13 @@ This projects has been created as part of the Umbraco new hire coding challenge,
  1. Go fetch the code `git clone https://github.com/mclausen/AcmeCorporation.git`
  2. Make sure you have installed angular cli globally. You can install it by opening your favorite powershell editor and go `npm install -g @angular/cli`
  3. Spin up your console and navigate to '<directory you cloned the project>\Src\AcmeCorporation-Client' and run `npm install` to restore node dependencies
- 4. Open '<directory you cloned the project>\Src\AcmeCorporation.Raffle.WebApi\appsettings.Development.json' and insert the connection string to your database. Example `Data Source=(localdb)\\.\\sharedlocaldb;Initial Catalog=AcmeCorporationRaffle;MultipleActiveResultSets=True;` (Make sure Initial Catalog is set to **AcmeCorporationRaffle**)
+ 4. Open '<directory you cloned the project>\Src\AcmeCorporation.Raffle.WebApi\appsettings.Development.json' and insert the connection string to your database. Example `Data Source=(localdb)\\.\\sharedlocaldb;Initial Catalog=AcmeCorporationDraw;MultipleActiveResultSets=True;` (Make sure Initial Catalog is set to **AcmeCorporationDraw**)
 
 ## Run
 ### Server
 
 **The visual studio way**
-You can easily run the web server from visual studio by selecting **AcmeCorporation.Raffle.WebApi** and hit F5.
+You can easily run the web server from visual studio by selecting **AcmeCorporation.Draw.WebApi** and hit F5.
 Make sure that you run it as console and not under IISExpress
 
 ![alt text](runconfig.PNG "Visual studio configuraion")
