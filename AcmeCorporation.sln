@@ -5,17 +5,17 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{8BC45422-8F5D-4423-8D53-6C3EFACF7337}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Domain", "Src\AcmeCorporation.Raffle.Domain\AcmeCorporation.Raffle.Domain.csproj", "{45BE1791-FC79-487E-A415-4690E222EBFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Draw.Domain", "Src\AcmeCorporation.Draw.Domain\AcmeCorporation.Draw.Domain.csproj", "{45BE1791-FC79-487E-A415-4690E222EBFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Infrastructure", "Src\AcmeCorporation.Raffle.Infrastructure\AcmeCorporation.Raffle.Infrastructure.csproj", "{D91D8A8D-D54D-4AB9-94CE-A2BC78792A7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Draw.Infrastructure", "Src\AcmeCorporation.Draw.Infrastructure\AcmeCorporation.Draw.Infrastructure.csproj", "{D91D8A8D-D54D-4AB9-94CE-A2BC78792A7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.WebApi", "Src\AcmeCorporation.Raffle.WebApi\AcmeCorporation.Raffle.WebApi.csproj", "{69F55F04-E7E4-4CE3-BFF7-F5A596EB3D8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Draw.WebApi", "Src\AcmeCorporation.Draw.WebApi\AcmeCorporation.Draw.WebApi.csproj", "{69F55F04-E7E4-4CE3-BFF7-F5A596EB3D8F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ECCA6A19-E803-43BB-AB83-569E57A9CA21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Tests", "Tests\AcmeCorporation.Raffle.Tests\AcmeCorporation.Raffle.Tests.csproj", "{C7D045A2-B67C-44E0-B518-35B8D76EF967}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Draw.Tests", "Tests\AcmeCorporation.Draw.Tests\AcmeCorporation.Draw.Tests.csproj", "{C7D045A2-B67C-44E0-B518-35B8D76EF967}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Raffle.Tests.Integration", "Tests\AcmeCorporation.Raffle.Tests.Integration\AcmeCorporation.Raffle.Tests.Integration.csproj", "{BA019711-BD99-43B9-B3C4-4B9D58D377F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Draw.Tests.Integration", "Tests\AcmeCorporation.Draw.Tests.Integration\AcmeCorporation.Draw.Tests.Integration.csproj", "{BA019711-BD99-43B9-B3C4-4B9D58D377F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcmeCorporation.Client", "Src\AcmeCorporation-Client\AcmeCorporation.Client.csproj", "{E01FD901-4DDC-4AE7-9C15-567E452B82C5}"
 EndProject

@@ -15,7 +15,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AcmeCorporation.Raffle.Domain\AcmeCorporation.Raffle.Domain.csproj" />
-    <ProjectReference Include="..\AcmeCorporation.Raffle.Infrastructure\AcmeCorporation.Raffle.Infrastructure.csproj" />
+    <ProjectReference Include="..\AcmeCorporation.Draw.Domain\AcmeCorporation.Draw.Domain.csproj" />
+    <ProjectReference Include="..\AcmeCorporation.Draw.Infrastructure\AcmeCorporation.Draw.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

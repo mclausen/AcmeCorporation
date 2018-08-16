@@ -3,15 +3,18 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\AcmeCorporation.Raffle.Domain\AcmeCorporation.Raffle.Domain.csproj" />
-    <ProjectReference Include="..\..\Src\AcmeCorporation.Raffle.Infrastructure\AcmeCorporation.Raffle.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\Src\AcmeCorporation.Raffle.WebApi\AcmeCorporation.Raffle.WebApi.csproj" />
+    <ProjectReference Include="..\..\Src\AcmeCorporation.Draw.Domain\AcmeCorporation.Draw.Domain.csproj" />
+    <ProjectReference Include="..\..\Src\AcmeCorporation.Draw.Infrastructure\AcmeCorporation.Draw.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Src\AcmeCorporation.Draw.WebApi\AcmeCorporation.Draw.WebApi.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App">
       <Version>2.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory">
       <Version>2.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">

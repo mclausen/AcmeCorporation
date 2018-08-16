@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AcmeCorporation.Raffle.Domain\AcmeCorporation.Raffle.Domain.csproj" />
+    <ProjectReference Include="..\AcmeCorporation.Draw.Domain\AcmeCorporation.Draw.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
@@ -14,7 +14,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>
