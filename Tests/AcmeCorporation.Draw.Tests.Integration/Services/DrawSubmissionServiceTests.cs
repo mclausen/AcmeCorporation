@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AcmeCorporation.Draw.Domain;
+using AcmeCorporation.Draw.Domain.Events;
 using AcmeCorporation.Draw.Domain.Interfaces;
 using AcmeCorporation.Draw.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,12 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
     public class DrawSubmissionServiceTests : DbTestFixture
     {
         private IDrawSubmissionService sut;
-        
+        private Mock<IEventDispatcher> eventDispathcerMock;
+
         public override void DoSetup()
         {
-            sut = new DrawSubmissionService(Context);
+            eventDispathcerMock = new Mock<IEventDispatcher>();
+            sut = new DrawSubmissionService(Context, eventDispathcerMock.Object);
         }
 
         public override void DoTeardown()
@@ -62,6 +65,8 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
             Assert.That(submission.EmailAddress.Value, Is.EqualTo(emailAddress));
             
             Assert.That(submission.SerialNumber.UsageCount, Is.EqualTo(1));
+
+            eventDispathcerMock.Verify(x => x.EnqueueDomainEvent(It.IsAny<IDomainEvent>()));
         }
         
         /// <remarks>
