@@ -16,4 +16,8 @@
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.0" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="(ng build)" />
+  </Target>
+
 </Project>
