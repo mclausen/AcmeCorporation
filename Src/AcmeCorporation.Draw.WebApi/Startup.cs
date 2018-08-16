@@ -115,7 +115,7 @@ namespace AcmeCorporation.Draw.WebApi
                 .Build()
             );
 
-            //app.UseMiddleware<EFUnitOfWorkMiddleware>();
+            app.UseMiddleware<EFUnitOfWorkMiddleware>();
             
             if (env.IsDevelopment())
             {
