@@ -17,7 +17,9 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
         
         public async Task<SerialNumber> GetSerialNumber(string serialNumber)
         {
-            var model = await _context.SerialNumbers.SingleOrDefaultAsync(x => x.Serial.Equals(serialNumber));
+            var model = await _context.SerialNumbers
+                .AsNoTracking()
+                .SingleOrDefaultAsync(x => x.Serial.Equals(serialNumber));
             return model;
         }
     }

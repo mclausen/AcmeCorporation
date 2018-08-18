@@ -48,6 +48,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
 
             var submissions = await _dbContext.DrawSubmissions
                 .Include(x => x.SerialNumber)
+                .AsNoTracking()
                 .OrderBy(x => x.SubmissionTimeUtc)
                 .Skip(skip)
                 .Take(resultsPrPage)
