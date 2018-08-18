@@ -1,5 +1,4 @@
-﻿using System;
-using AcmeCorporation.Draw.Domain;
+﻿using AcmeCorporation.Draw.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -30,7 +29,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Storage
                 .Property(model => model.UsageCount)
                 .HasDefaultValue(0);
             
-            // Raffle Submission
+            // Draw Submission
             modelBuilder.Entity<DrawSubmission>()
                 .HasKey(model => model.Id);
             
