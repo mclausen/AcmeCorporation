@@ -2,6 +2,8 @@
 
 [![N|Solid](https://umbraco.com/media/1947/umbraco-logo-white-background.png)](https://umbraco.com/)
 
+[![Build status](https://martinhc.visualstudio.com/Umbraco%20Showcase/_apis/build/status/Umbraco%20Backend%20Showcase)](https://martinhc.visualstudio.com/Umbraco%20Showcase/_build/latest?definitionId=6)
+
 This projects has been created as part of the Umbraco new hire coding challenge, so lets go!
 
 # Prerequisites
