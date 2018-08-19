@@ -12,12 +12,12 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
     public class DrawSubmissionService : IDrawSubmissionService
     {
         private readonly DrawDbContext _dbContext;
-        private readonly IEventDispatcher eventDispatcher;
+        private readonly IPublishDomainEvent eventPublisher;
 
-        public DrawSubmissionService(DrawDbContext dbContext, IEventDispatcher eventDispatcher)
+        public DrawSubmissionService(DrawDbContext dbContext, IPublishDomainEvent eventPublisher)
         {
             _dbContext = dbContext;
-            this.eventDispatcher = eventDispatcher;
+            this.eventPublisher = eventPublisher;
         }
         
         public async Task<DrawSubmission> Submit(string firstName, string lastname, EmailAddress emailAddress, SerialNumber serialNumber)
@@ -33,7 +33,7 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
                 serialNumber: serialNumber);
             await _dbContext.DrawSubmissions.AddAsync(submission);
 
-            eventDispatcher.EnqueueDomainEvent(new DrawSubmissionRetrievedDomainEvent(submission.Id, emailAddress.Value));
+            eventPublisher.Publish(new DrawSubmissionRetrievedDomainEvent(submission.Id, emailAddress.Value));
 
             return submission;
         }

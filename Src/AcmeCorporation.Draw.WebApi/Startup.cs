@@ -80,6 +80,7 @@ namespace AcmeCorporation.Draw.WebApi
         private void RegisterEventHandlers(IServiceCollection services)
         {
             services.AddScoped<IEventDispatcher, EventDispatcher>();
+            services.AddScoped<IPublishDomainEvent>(collection => collection.GetService<IEventDispatcher>() as EventDispatcher);
 
             // Handlers
             services.AddScoped<IHandleDomainEvent<DrawSubmissionRetrievedDomainEvent>, DrawSubmissionRetrievedDomainEventHandler>();

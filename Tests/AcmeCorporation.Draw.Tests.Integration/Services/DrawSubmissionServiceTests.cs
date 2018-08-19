@@ -15,11 +15,11 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
     public class DrawSubmissionServiceTests : DbTestFixture
     {
         private IDrawSubmissionService sut;
-        private Mock<IEventDispatcher> eventDispathcerMock;
+        private Mock<IPublishDomainEvent> eventDispathcerMock;
 
         public override void DoSetup()
         {
-            eventDispathcerMock = new Mock<IEventDispatcher>();
+            eventDispathcerMock = new Mock<IPublishDomainEvent>();
             sut = new DrawSubmissionService(Context, eventDispathcerMock.Object);
         }
 
@@ -66,7 +66,7 @@ namespace AcmeCorporation.Draw.Tests.Integration.Services
             
             Assert.That(submission.SerialNumber.UsageCount, Is.EqualTo(1));
 
-            eventDispathcerMock.Verify(x => x.EnqueueDomainEvent(It.IsAny<IDomainEvent>()));
+            eventDispathcerMock.Verify(x => x.Publish(It.IsAny<IDomainEvent>()));
         }
         
         /// <remarks>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AcmeCorporation.Draw.Infrastructure.Services
 {
-    public class EventDispatcher : IEventDispatcher
+    public class EventDispatcher : IEventDispatcher, IPublishDomainEvent
     {
         private readonly IServiceProvider serviceProvider;
 
@@ -15,11 +15,6 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
         {
             this.serviceProvider = serviceProvider;
             events = new List<IDomainEvent>();
-        }
-
-        public void EnqueueDomainEvent(IDomainEvent domainEvent)
-        {
-            events.Add(domainEvent);
         }
 
         public async Task DispatchEvents()
@@ -38,6 +33,14 @@ namespace AcmeCorporation.Draw.Infrastructure.Services
             }
 
             events.Clear();
+        }
+
+        public void Publish(IDomainEvent domainEvent)
+        {
+            if (domainEvent == null)
+                throw new ArgumentNullException(nameof(domainEvent));
+
+            events.Add(domainEvent);
         }
     }
 }
