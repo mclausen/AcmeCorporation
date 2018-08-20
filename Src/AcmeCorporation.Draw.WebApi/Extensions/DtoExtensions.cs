@@ -28,7 +28,7 @@ namespace AcmeCorporation.Draw.WebApi.Extensions
                 CurrentPage = self.CurrentPage,
                 NumberOfPages = self.NumberOfPages,
                 Submissions = self.Submissions
-                    .Select(draw => draw.ToDto())
+                    .Select(draw => draw.ToDto(true))
                     .ToList()
             };
         }
