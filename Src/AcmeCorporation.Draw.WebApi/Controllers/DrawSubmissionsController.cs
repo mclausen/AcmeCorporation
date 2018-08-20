@@ -20,7 +20,7 @@ namespace AcmeCorporation.Draw.WebApi.Controllers
         }
         
         // [Authorize] if security was enabled this wouldnt be commented out
-        [HttpGet, Route("/pages/{page}")] // /pages/to avoid defacto rest getbyId convention
+        [HttpGet, Route("pages/{page}")] // /pages/to avoid defacto rest getbyId convention
         public async Task<IActionResult> Get(int page)
         {
             var pagedResult = await _submissionService.GetSubmissions(page);
